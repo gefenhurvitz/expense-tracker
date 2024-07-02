@@ -5,6 +5,7 @@ import {
   where,
   orderBy,
   onSnapshot,
+  
 } from "firebase/firestore";
 import { db } from "../config/firebase-config";
 import { useGetUserInfo } from "./useGetUserInfo";
@@ -33,6 +34,7 @@ export const useGetTransactions = () => {
 
           docs.push({...data, id})
         });
+        // console.log(docs)
 
         setTransactions(docs)
       });
@@ -46,5 +48,5 @@ export const useGetTransactions = () => {
   useEffect(() => {
     getTransactions();
   }, []);
-  return transactions;
+  return {transactions};
 };

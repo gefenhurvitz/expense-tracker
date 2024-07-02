@@ -17,6 +17,8 @@ export const ExpenseTracker = () => {
       transactionAmount,
       transactionType,
     });
+    setDescription("");
+    setTransactionAmount("");
   };
 
   return (
@@ -75,15 +77,15 @@ export const ExpenseTracker = () => {
       <div className="transactions">
         <h3>transactions</h3>
         <ul>
+          {console.log(transactions)}
           {transactions.map((transaction) => {
             const { description, transactionAmount, transactionType } =
               transaction;
-
             return (
-              <li>
+              <il>
                 <h4>{description}</h4>
-                <p> ${transactionAmount} . <label> {transactionType}</label></p>
-              </li>
+                <p>${transactionAmount}</p> <label style={{color: transactionType === "expense" ? "red" : "green"}}>{transactionType}</label>
+              </il>
             );
           })}
         </ul>
